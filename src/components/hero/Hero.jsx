@@ -1,9 +1,13 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { TiLocationArrow } from 'react-icons/ti';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import Button from '../button/Button';
+import TriangleLoader from '../loader/TriangleLoader';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   // track which index video is currently playing
@@ -19,8 +23,6 @@ const Hero = () => {
 
   // target nextvideo dom element
   const nextVideoRef = useRef(null);
-
-  // const upcomingVideoIndex = (currentIndex % totalVideos) + 1;
 
   const handleMiniVideoPlayer = () => {
     setHasClicked(true);
@@ -57,7 +59,7 @@ const Hero = () => {
         gsap.from('#current-video', {
           transformOrigin: 'center center',
           scale: 0,
-          duration: 1.5,
+          duration: 1.8,
           ease: 'power1.inOut',
         });
       }
@@ -65,10 +67,36 @@ const Hero = () => {
     { dependencies: [currentIndex], revertOnUpdate: true }
   );
 
-  // console.log(loadedVideos);
+  useGSAP(() => {
+    gsap.set('#video-frame', {
+      clipPath: 'polygon(14% 0%, 76% 0, 90% 85%, 0 100%)',
+      borderRadius: '0% 0% 10% 0%',
+    });
+
+    // start from 0% and end at 100% of the video-frame
+    gsap.from('#video-frame', {
+      clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+      borderRadius: '0 0 0 0',
+      ease: 'power1.inOut',
+      scrollTrigger: {
+        // trigger the animation when the video-frame is in view
+        trigger: '#video-frame',
+        start: 'center center',
+        end: 'bottom center',
+        scrub: true,
+      },
+    });
+  });
+
+  useEffect(() => {
+    if (loadedVideos === totalVideos - 1) {
+      setIsLoading(false);
+    }
+  }, [loadedVideos]);
 
   return (
     <div className='relative h-dvh w-screen'>
+      {isLoading && <TriangleLoader />}
       <div
         id='video-frame'
         className='relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75'
@@ -101,7 +129,7 @@ const Hero = () => {
           />
           <video
             src={getVideoSource(prevIndex)}
-            // autoPlay
+            autoPlay
             loop
             muted
             className='absolute left-0 top-0 size-full object-cover object-center'
@@ -122,9 +150,9 @@ const Hero = () => {
 
             <Button
               id='watch-trailer'
-              title='Watch trailer'
+              title='Watch Trailer'
               leftIcon={<TiLocationArrow />}
-              containerClass='bg-yellow-300 flex-center gap-1'
+              containerClass='bg-yellow-300'
             />
           </div>
         </div>
