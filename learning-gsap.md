@@ -17,9 +17,15 @@ useGSAP(()=> {
 
 ! Timeline - gsap.timeline({}) : timeline allow more precisely to create a trigger start and end tyo about section ma vayeko jasto (zentry gsap project)
 
-* bascially timeline acts as a container for tweens and other timelines, making it simple to control them as a whole and precisely manage their timing.
+* bascially timeline acts as a container for tweens and other timelines, making it simple to control them as a whole and precisely manage their timing. timeline define garyo vane tesma aru add garna milcha ra one by one tini haru execute huncha. like below example scroll ma paila green - red - blue esari execute hudai cha cz they are contained one timeline
+const tl = gsap.timeline({
+scrollTrigger: {....}})
 
-* scrub: jun scrollTrigger : {} bhitra lekhincha tesle chai how are we moving through animation on scroll vanne janaune ho
+tl.to('.greenbox', {..})
+tl.to('.redbox', {..})
+tl.to('.bluebox', {..})
+
+* scrub: jun scrollTrigger : {} bhitra lekhincha tesle chai how are we moving through animation on scroll vanne janaune ho. important things is scroll agadhi paxadi jada garda ni tei anusar animation hunalai scrub : true lekhincha tara smooth banaunalai hami value ni dina sakcha. like kunai div ma animation cha ani scrollforward garda tesko animation dekhincha vane scroll back garda feri tesko beginning state tira janu paryo ho for that scrub is needed. example home animation of zentry.
 
 * gsap.set("#idname", {...}), creates twin with no direction . tweens -> to, from, fromto
 
@@ -45,8 +51,8 @@ gsap.to(".box", { rotation: 27, x: 100, duration: 1 });
 animate ".box" from an opacity of 0 to an opacity of 0.5
 gsap.fromTo(".box", { opacity: 0 }, { opacity: 0.5, duration: 1 });
 
-* start("top top") -> meaning aniamtion start when trigger element's top reaches the viewport top
-* end("+=800 bottom") -> meaning, animation ends when scroll 800px from bottom as here reference point for end position is 'bottom of the viewport' . in general esle chai diyeko ending reference k cha tesko position ma 800 add garcha ani end huncha vaneko. The animation ends when the bottom of the viewport (bottom) has moved 800 pixels past its initial position relative to the trigger.
+! start("top top") -> meaning aniamtion start when trigger element's top reaches the viewport top
+! end("+=800 bottom") -> meaning, animation ends when scroll 800px from bottom as here reference point for end position is 'bottom of the viewport' . in general esle chai diyeko ending reference k cha tesko position ma 800 add garcha ani end huncha vaneko. The animation ends when the bottom of the viewport (bottom) has moved 800 pixels past its initial position relative to the trigger.
 When You Scroll 800 Pixels (+=800):
 
 The animation ends when the bottom of the viewport has moved 800 pixels beyond its starting position.

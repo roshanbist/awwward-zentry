@@ -65,7 +65,7 @@ body {
   }
 
   .nav-hover-btn {
-    @apply relative ms-10 font-general text-xs uppercase text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer;
+    @apply relative font-general text-sm uppercase text-blue-50 after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100;
   }
 
   .floating-nav {
@@ -84,13 +84,21 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
+  .arrow-btn {
+    @apply translate-y-0 skew-y-0 opacity-100 duration-500 transition group-hover:-translate-y-full group-hover:skew-y-6 group-hover:opacity-0;
+  }
+
+  .arrow-btn-hover {
+    @apply absolute left-0 translate-y-full skew-y-6 opacity-0 duration-500 transition group-hover:translate-y-0 group-hover:skew-y-0 group-hover:opacity-100;
+  }
+
   .special-font b {
     font-family: 'zentry';
     font-feature-settings: 'ss01' on;
   }
 
   .hero-heading {
-    @apply uppercase font-zentry font-black text-2xl sm:right-10 sm:text-3xl md:text-4xl lg:text-[18rem] lg:leading-none;
+    @apply uppercase font-zentry font-black text-2xl sm:right-10 md:right-16 sm:text-3xl md:text-4xl lg:text-[18rem] lg:leading-none;
   }
 
   .about-subtext {
@@ -100,7 +108,7 @@ body {
 
   .about-image {
     /* @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw]; */
-    @apply absolute left-1/2 top-0 z-20 h-[50vh] md:h-[60vh] w-[30rem] origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
+    @apply absolute left-1/2 top-0 z-20 h-[50vh] md:h-[60vh] w-[30rem] md:w-[25vw] origin-center -translate-x-1/2 overflow-hidden rounded-3xl;
   }
 
   .animated-title {
@@ -168,26 +176,48 @@ body {
 }
 
 .indicator-line {
-  @apply h-1 w-px rounded-full bg-white transition-all duration-200 ease-in-out;
+  @apply h-full w-[0.1rem] bg-white;
 }
 
 .indicator-line.active {
-  animation: indicator-line 0.5s ease infinite;
-  animation-delay: calc(var(--animation-order) * 0.1s);
+  animation: indicator-line 1s ease-in-out infinite;
+}
+
+.indicator-line:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.indicator-line:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.indicator-line:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.indicator-line:nth-child(4) {
+  animation-delay: 0.75s;
 }
 
 @keyframes indicator-line {
   0% {
-    height: 4px;
-    transform: translateY(-0px);
+    height: 10%;
   }
+
+  25% {
+    height: 75%;
+  }
+
   50% {
-    height: 16px;
-    transform: translateY(-4px);
+    height: 50%;
   }
+
+  75% {
+    height: 100%;
+  }
+
   100% {
-    height: 4px;
-    transform: translateY(-0px);
+    height: 10%;
   }
 }
 
