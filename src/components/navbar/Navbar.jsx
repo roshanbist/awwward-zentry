@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 import { TiLocationArrow } from 'react-icons/ti';
 
 import Button from '../button/Button';
-import { navItems } from '../../utils/constant/NavItem';
-import gsap from 'gsap';
+import { navItems } from '../constant/NavItem';
 
 const Navbar = () => {
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
