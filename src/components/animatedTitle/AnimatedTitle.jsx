@@ -7,7 +7,7 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AnimatedTitle = ({ title, containerClass }) => {
+const AnimatedTitle = ({ title, containerClass, sectionId }) => {
   const titleRef = useRef(null);
 
   //   useEffect(() => {
@@ -45,14 +45,18 @@ const AnimatedTitle = ({ title, containerClass }) => {
 
     titleAnimation.to('.animated-word', {
       opacity: 1,
-      transform: 'translate3d(0, 0,0) rotateX(0deg) rotateY(0deg',
+      transform: 'translate3d(0, 0,0) rotateX(0deg) rotateY(0deg)',
       ease: 'Power2.inOut',
       stagger: 0.05,
     });
   });
 
   return (
-    <div className={`${containerClass} animated-title`} ref={titleRef}>
+    <div
+      className={`${containerClass} animated-title`}
+      ref={titleRef}
+      id={sectionId ? sectionId : ''}
+    >
       {title.split('<br />').map((line, index) => (
         <div
           key={index}

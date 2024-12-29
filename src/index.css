@@ -123,12 +123,19 @@ body {
     will-change: opacity, transform;
   }
 
+  .bento-grid {
+    opacity: 0;
+    transform-origin: center top;
+    transform: perspective(1000px) translate(0, 100px) rotateX(-40deg);
+    will-change: transform, opacity;
+  }
+
   .bento-tilt_1 {
-    @apply relative border-hsla col-span-2 overflow-hidden rounded-md transition-transform duration-300 ease-out;
+    @apply relative border-hsla overflow-hidden rounded-md transition-transform duration-300 ease-out;
   }
 
   .bento-tilt_2 {
-    @apply relative col-span-1 row-span-1 overflow-hidden rounded-md transition-transform duration-300 ease-out;
+    @apply relative overflow-hidden rounded-md transition-transform duration-300 ease-out;
   }
 
   .bento-title {
@@ -141,13 +148,14 @@ body {
   }
 
   .story-img-mask {
-    @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5;
-    clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
+    @apply absolute left-0 top-0 size-full overflow-hidden md:left-[25%] md:top-[-10%];
+    /* clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%); */
+    /* clip-path: polygon(0 0, 86% 18%, 100% 74%, 13% 93%); */
   }
 
   .story-img-content {
     @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
-    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
+    /* transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1); */
   }
 
   .gallery-img-container {
