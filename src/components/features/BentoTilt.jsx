@@ -26,10 +26,12 @@ const BentoTilt = ({ children, className = '' }) => {
     const rotateX = (y - 0.5) * 5;
     const rotateY = (x - 0.5) * -5;
 
-    const newTransform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(0.95) `;
-    
+    const newTransform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(0.95)`;
+
     setTransformStyle(newTransform);
   };
+
+  // console.log('transformStyle', transformStyle);
 
   const handleMouseLeave = () => {
     setTransformStyle('');

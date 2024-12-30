@@ -10,28 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 const AnimatedTitle = ({ title, containerClass, sectionId }) => {
   const titleRef = useRef(null);
 
-  //   useEffect(() => {
-  //     let ctx = gsap.context(() => {
-  //       const titleAnimation = gsap.timeline({
-  //         scrollTrigger: {
-  //           trigger: titleRef.current,
-  //           start: '100 bottom',
-  //           end: 'center bottom',
-  //           toggleActions: 'play none none reset',
-  //         },
-  //       });
-
-  //       titleAnimation.to('.animated-word', {
-  //         opacity: 1,
-  //         transform: 'translate3d(0, 0,0) rotateX(0deg) rotateY(0deg',
-  //         ease: 'Power2.inOut',
-  //         stagger: 0.05,
-  //       });
-  //     }, titleRef);
-
-  //     return () => ctx.revert();
-  //   }, []);
-
   useGSAP(() => {
     const titleAnimation = gsap.timeline({
       scrollTrigger: {
@@ -39,7 +17,6 @@ const AnimatedTitle = ({ title, containerClass, sectionId }) => {
         start: '100 bottom',
         end: 'center bottom',
         toggleActions: 'play none none reset',
-        // markers: true,
       },
     });
 

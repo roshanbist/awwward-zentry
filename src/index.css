@@ -113,7 +113,7 @@ body {
 
   .animated-title {
     /* @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem]; */
-    @apply text-white text-center text-[4rem]/[1] md:text-[7rem]/[1] uppercase lg:text-4xl/[0.9];
+    @apply text-blue-50 text-center text-[4rem]/[1] md:text-[7rem]/[1] uppercase lg:text-4xl/[0.9];
   }
 
   .animated-word {
@@ -148,14 +148,13 @@ body {
   }
 
   .story-img-mask {
-    @apply absolute left-0 top-0 size-full overflow-hidden md:left-[25%] md:top-[-10%];
-    /* clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%); */
-    /* clip-path: polygon(0 0, 86% 18%, 100% 74%, 13% 93%); */
+    @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5;
+    clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
   }
 
   .story-img-content {
-    @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
-    /* transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1); */
+    @apply absolute w-full md:h-dvh h-[50dvh]  left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
+    transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
   }
 
   .gallery-img-container {
@@ -171,15 +170,16 @@ body {
   }
 
   .sword-man-clip-path {
-    clip-path: polygon(16% 0, 89% 15%, 75% 100%, 0 97%);
+    /* clip-path: polygon(16% 0, 89% 15%, 75% 100%, 0 97%); */
+    clip-path: polygon(15% 0, 83% 19%, 66% 78%, 0% 79%);
   }
 
   .contact-clip-path-1 {
-    clip-path: polygon(25% 0%, 74% 0, 69% 64%, 34% 73%);
+    clip-path: polygon(0 0, 85% 0, 75% 90%, 15% 100%);
   }
 
   .contact-clip-path-2 {
-    clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
+    clip-path: polygon(39% 0%, 80% 30%, 66% 100%, 10% 76%);
   }
 }
 

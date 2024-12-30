@@ -4,8 +4,8 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import Button from '../button/Button';
 import TriangleLoader from '../loader/TriangleLoader';
+import Button from '../ui/Button';
 
 gsap.registerPlugin(ScrollTrigger);
 
