@@ -1,23 +1,85 @@
 import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+
 import AnimatedTitle from '../animatedTitle/animatedTitle';
 import Button from '../ui/Button';
 import ImageClipBox from '../ui/ImageClipBox';
 
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 const Contact = () => {
+  const contactContainerRef = useRef(null);
   const contactLeftTopImgRef = useRef(null);
   const contactLeftBottomImgRef = useRef(null);
   const contactRightTopImgRef = useRef(null);
 
   const contactTitle = `let's b<b>u</b>ild the <br /> new era of g<b>a</b>ming <br /> t<b>o</b>gether.`;
 
-  //   useGSAP(() => {});
+  useGSAP(() => {
+    const topLeftImageAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: contactContainerRef.current,
+        start: '200 bottom',
+        end: 'center bottom',
+        toggleActions: 'play none none reset',
+      },
+    });
+
+    topLeftImageAnimation.from(contactLeftTopImgRef.current, {
+      opacity: 0,
+      y: -150,
+      duration: 0.6,
+      ease: 'power2.inOut',
+    });
+  });
+  useGSAP(() => {
+    const bottomLeftImageAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: contactContainerRef.current,
+        start: '200 bottom',
+        end: 'center bottom',
+        toggleActions: 'play none none reset',
+      },
+    });
+
+    bottomLeftImageAnimation.from(contactLeftBottomImgRef.current, {
+      opacity: 0,
+      y: 150,
+      duration: 0.6,
+      ease: 'power2.inOut',
+    });
+  });
+  useGSAP(() => {
+    const topRightImageAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: contactContainerRef.current,
+        start: '200 bottom',
+        end: 'center bottom',
+        toggleActions: 'play none none reset',
+      },
+    });
+
+    topRightImageAnimation.from(contactRightTopImgRef.current, {
+      opacity: 0,
+      y: 150,
+      duration: 0.6,
+      ease: 'power2.inOut',
+    });
+  });
 
   return (
-    <div id='contact' className='py-20 px-8 md:px-16 md:py-28 relative z-10'>
+    <div
+      id='contact'
+      className='py-20 px-8 md:px-16 md:py-28 relative z-10'
+      ref={contactContainerRef}
+    >
       <div className='bg-black rounded-lg relative overflow-hidden'>
-        <div className='size-full relative max-w-[100rem] mx-auto p-24 md:p-28 md:py-32'>
+        <div className='size-full relative max-w-[100rem] mx-auto px-8 py-32 md:px-28'>
           <div
-            className='absolute -left-20 top-0 hidden h-[18rem] w-72 overflow-hidden sm:block lg:w-96'
+            className='absolute left-8 xl:-left-20 top-0 hidden h-[18rem] w-72 overflow-hidden sm:block xl:w-96'
             ref={contactLeftTopImgRef}
           >
             <ImageClipBox
@@ -26,7 +88,7 @@ const Contact = () => {
             />
           </div>
           <div
-            className='absolute -left-20 bottom-0 hidden h-[18rem] w-72 overflow-hidden sm:block lg:w-[35rem]'
+            className='absolute left-0 xl:-left-20 -bottom-[8rem] lg:bottom-0 hidden h-[18rem] w-[25rem] overflow-hidden sm:block lg:w-[35rem]'
             ref={contactLeftBottomImgRef}
           >
             <ImageClipBox
@@ -45,13 +107,16 @@ const Contact = () => {
               containerClass='!font-black !leading-[.9] mb-12'
             />
 
-            <Button title='contact us' containerClass='mt-10 cursor-pointer' />
+            <Button
+              title='contact us'
+              containerClass='cursor-pointer bg-blue-50 py-6'
+            />
           </div>
         </div>
       </div>
-      <div className='outer-block absolute top-[4rem] size-full max-w-[100rem] mx-auto left-1/2 -translate-x-1/2'>
+      <div className='outer-block absolute top-0 md:top-[4rem] size-full max-w-[100rem] mx-auto left-1/2 -translate-x-1/2'>
         <div
-          className='absolute -top-40 left-20 w-60 sm:top-1/2 md:left-auto md:-right-[10.5rem] lg:top-[5.6rem] lg:w-[25rem]'
+          className='absolute -top-[4rem] sm:top-[3rem] left-0 sm:left-auto right-0 max-sm:mx-auto w-60 sm:0 md:right-[2.5rem] xl:-right-[10.5rem] lg:top-[5.6rem] xl:w-[25rem]'
           ref={contactRightTopImgRef}
         >
           <ImageClipBox

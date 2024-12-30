@@ -62,5 +62,7 @@ The +=800 means the animation will continue until the bottom of the viewport has
  -->
 
 <!--
+! CONTEXT -> gsap.context() : it collects all the gsap animation and scrolltriggers that are created with the supplied function so that they can be revert or kill at once
+
 ! context should always be cleared with revert method
  -->
