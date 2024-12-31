@@ -14,7 +14,7 @@ const About = () => {
         start: 'top top',
         end: '+=750 center',
         // markers: true,
-        scrub: 1,
+        scrub: 0.5,
         pin: true,
         pinSpacing: true,
       },
@@ -24,7 +24,6 @@ const About = () => {
       width: '100vw',
       height: '100vh',
       borderRadius: 0,
-      duration: 5,
     });
   });
 

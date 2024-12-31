@@ -45,14 +45,14 @@ const Features = () => {
       tiltAnimation.to(bentoGrid, {
         transform: 'perspective(1000px) translate(0, 0) rotateX(0deg)',
         opacity: 1,
-        duration: 0.6,
+        duration: 0.8,
         ease: 'power2.out',
       });
     });
   });
 
   return (
-    <section className='bg-black pb-[10rem] md:pb-[20rem]'>
+    <section className='bg-black pb-[7rem] md:pb-[12rem]'>
       <div className='container mx-auto px-8 md:px-16'>
         <div className='px-8 py-[5rem] md:py-[10rem]' ref={textContainerRef}>
           <p className='font-cicular-web text-lg text-blue-50'>
@@ -129,7 +129,7 @@ const Features = () => {
             </BentoTilt>
           </div>
           <div className='bento-grid col-span-1 row-span-1'>
-            <BentoTilt className='bento-tilt_2'>
+            <BentoTilt className='bento-tilt_2 size-full'>
               <video
                 src='/videos/feature-5.mp4'
                 loop

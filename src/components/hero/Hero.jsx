@@ -6,22 +6,21 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import TriangleLoader from '../loader/TriangleLoader';
 import Button from '../ui/Button';
+import AnimateVideoThumbnail from '../animatedVideoThumbnail/AnimateVideoThumbnail';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  // track which index video is currently playing
   const [currentIndex, setCurrentIndex] = useState(1);
   const [prevIndex, setPrevIndex] = useState(1);
-  // track if the user has clicked minivideo thumbnail
+
   const [hasClicked, setHasClicked] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  // refers to number of videos loaded
+
   const [loadedVideos, setLoadedVideos] = useState(0);
 
   const totalVideos = 4;
 
-  // target nextvideo dom element
   const nextVideoRef = useRef(null);
 
   const handleMiniVideoPlayer = () => {
@@ -35,6 +34,12 @@ const Hero = () => {
   const handleVideoLoad = () => {
     setLoadedVideos((prevLoadedVidoes) => prevLoadedVidoes + 1);
   };
+
+  useEffect(() => {
+    if (loadedVideos === totalVideos - 1) {
+      setIsLoading(false);
+    }
+  }, [loadedVideos]);
 
   useGSAP(
     () => {
@@ -73,13 +78,11 @@ const Hero = () => {
       borderRadius: '0% 0% 10% 0%',
     });
 
-    // start from 0% and end at 100% of the video-frame
     gsap.from('#video-frame', {
       clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
       borderRadius: '0 0 0 0',
       ease: 'power1.inOut',
       scrollTrigger: {
-        // trigger the animation when the video-frame is in view
         trigger: '#video-frame',
         start: 'center center',
         end: 'bottom center',
@@ -87,12 +90,6 @@ const Hero = () => {
       },
     });
   });
-
-  useEffect(() => {
-    if (loadedVideos === totalVideos - 1) {
-      setIsLoading(false);
-    }
-  }, [loadedVideos]);
 
   return (
     <div className='relative h-dvh w-screen'>
@@ -102,21 +99,23 @@ const Hero = () => {
         className='relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75'
       >
         <div>
-          <div className='mask-clip-path absolute-center z-50 size-[22rem] cursor-pointer overflow-hidden rounded-lg'>
-            <div
-              onClick={handleMiniVideoPlayer}
-              className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100'
-            >
-              <video
-                ref={nextVideoRef}
-                src={getVideoSource((currentIndex % totalVideos) + 1)}
-                loop
-                muted
-                id='current-video'
-                className='size-[22rem] origin-center scale-150 object-cover object-center'
-                onLoadedData={handleVideoLoad}
-              />
-            </div>
+          <div className='mask-clip-path absolute-center z-50 size-[22rem] overflow-hidden rounded-lg'>
+            <AnimateVideoThumbnail>
+              <div
+                onClick={handleMiniVideoPlayer}
+                className='origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100'
+              >
+                <video
+                  ref={nextVideoRef}
+                  src={getVideoSource((currentIndex % totalVideos) + 1)}
+                  loop
+                  muted
+                  id='current-video'
+                  className='size-[22rem] origin-center scale-150 object-cover object-center'
+                  onLoadedData={handleVideoLoad}
+                />
+              </div>
+            </AnimateVideoThumbnail>
           </div>
           <video
             ref={nextVideoRef}
@@ -140,7 +139,7 @@ const Hero = () => {
           G<b>A</b>MING
         </h1>
         <div className='absolute left-0 top-0 z-40 size-full'>
-          <div className='mt-[9.6rem] px-5 sm:px-16'>
+          <div className='mt-[9.6rem] px-5 sm:px-16 max-w-[64rem] z-50'>
             <h1 className='special-font hero-heading text-blue-100'>
               redefi<b>n</b>e
             </h1>

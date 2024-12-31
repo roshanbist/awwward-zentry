@@ -1,9 +1,13 @@
 import { useRef } from 'react';
-import AnimatedTitle from '../animatedTitle/animatedTitle';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import RoundedCorner from '../ui/RoundedCorner';
+import AnimatedTitle from '../animatedTitle/animatedTitle';
 import Button from '../ui/Button';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Story = () => {
   const frameRef = useRef('');
@@ -46,48 +50,68 @@ const Story = () => {
     });
   };
 
+  useGSAP(() => {
+    const storyImageAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.story-img-container',
+        start: '50 bottom',
+        end: 'bottom center',
+        toggleActions: 'play none none reset',
+      },
+    });
+
+    storyImageAnimation.to('.story-img-container', {
+      transform: 'perspective(1000px) translate(0, 0) rotateX(0deg)',
+      opacity: 1,
+      duration: 0.8,
+      ease: 'power2.out',
+    });
+  });
+
   return (
     <section id='story' className='min-h-dvh w-screen bg-black text-blue-50'>
-      <div className='flex size-full flex-col items-center py-10 pb-24'>
-        <p className='font-general text-sm uppercase'>
-          the multiversal ip world
-        </p>
-        <div className='relative size-full'>
-          <AnimatedTitle
-            title={sectionTitle}
-            containerClass='mt-5 pointer-events-none mix-blend-difference relative z-10'
-            sectionId='#story'
-          />
-          <div className='story-img-container'>
-            <div className='story-img-mask'>
-              <div className='story-img-content'>
-                <img
-                  onMouseMove={handleMouseMove}
-                  onMouseLeave={handleMouseLeave}
-                  ref={frameRef}
-                  src='images/entrance.webp'
-                  alt='entrace'
-                  className='object-contain'
-                />
-              </div>
-            </div>
-            {/* for the rounded corner */}
-            <RoundedCorner />
-          </div>
-        </div>
-        <div className='-mt-80 flex w-full justify-center md:-mt-64 md:me-44 md:justify-end'>
-          <div className='flex h-full w-fit flex-col items-center md:items-start'>
-            <p className='mb-8 max-w-xl text-center font-circular-web text-violet-50 md:text-start'>
-              Where realms converge, lies Zentry and the boundless pillar.
-              Discover its secrets and shape your fate amidst infinite
-              opportunities.
-            </p>
-
-            <Button
-              id='realm-btn'
-              title='discover prologue'
-              containerClass='bg-blue-50 py-6'
+      <div className='container size-full mx-auto'>
+        <div className='flex size-full flex-col items-center py-10 pb-24'>
+          <p className='font-general text-sm uppercase'>
+            the multiversal ip world
+          </p>
+          <div className='relative size-full'>
+            <AnimatedTitle
+              title={sectionTitle}
+              containerClass='mt-5 pointer-events-none mix-blend-difference relative z-10'
+              sectionId='#story'
             />
+            <div className='story-img-container'>
+              <div className='story-img-mask'>
+                <div className='story-img-content'>
+                  <img
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    ref={frameRef}
+                    src='images/entrance.webp'
+                    alt='entrace'
+                    className='object-contain size-full'
+                  />
+                </div>
+              </div>
+              {/* for the rounded corner */}
+              <RoundedCorner />
+            </div>
+          </div>
+          <div className='md:-mt-[8rem] flex w-full justify-center md:me-44 md:justify-end'>
+            <div className='flex h-full w-fit flex-col items-center md:items-start'>
+              <p className='mb-8 max-w-xl text-center font-circular-web text-violet-50 md:text-start'>
+                Where realms converge, lies Zentry and the boundless pillar.
+                Discover its secrets and shape your fate amidst infinite
+                opportunities.
+              </p>
+
+              <Button
+                id='realm-btn'
+                title='discover prologue'
+                containerClass='bg-blue-50 py-6'
+              />
+            </div>
           </div>
         </div>
       </div>

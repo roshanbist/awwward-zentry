@@ -26,6 +26,7 @@ const AnimatedTitle = ({ title, containerClass, sectionId }) => {
           opacity: 1,
           transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
           ease: 'power2.inOut',
+          duration: 0.8,
           stagger: 0.02,
         },
         0
@@ -44,7 +45,7 @@ const AnimatedTitle = ({ title, containerClass, sectionId }) => {
       {title.split('<br />').map((line, index) => (
         <div
           key={index}
-          className='animated-word px-12'
+          className='animated-word px-10'
           dangerouslySetInnerHTML={{ __html: line }}
         />
       ))}

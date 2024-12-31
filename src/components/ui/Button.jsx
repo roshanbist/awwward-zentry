@@ -3,7 +3,7 @@ const Button = ({ id, title, leftIcon, rightIcon, containerClass }) => {
   return (
     <button
       id={id}
-      className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full px-10 py-4 flex-center gap-1 text-black ${containerClass}`}
+      className={`group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full px-10 py-6 flex-center gap-1 text-black ${containerClass}`}
     >
       {leftIcon && (
         <div className='relative overflow-hidden inline-flex'>
