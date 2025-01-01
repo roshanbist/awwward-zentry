@@ -31,7 +31,6 @@ const Features = () => {
   });
 
   useGSAP(() => {
-    // loop through each bento-grid dom element
     gsap.utils.toArray('.bento-grid').forEach((bentoGrid) => {
       const tiltAnimation = gsap.timeline({
         scrollTrigger: {

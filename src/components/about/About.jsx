@@ -1,19 +1,18 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import AnimatedTitle from '../animatedTitle/animatedTitle';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useGSAP(() => {
-    // creating timeline
     const clipAnimation = gsap.timeline({
       scrollTrigger: {
         trigger: '#clip',
         start: 'top top',
         end: '+=750 center',
-        // markers: true,
         scrub: 0.5,
         pin: true,
         pinSpacing: true,

@@ -1,11 +1,6 @@
 /* eslint-disable react/prop-types */
 
 import { useRef, useState } from 'react';
-// import { useGSAP } from '@gsap/react';
-// import gsap from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// gsap.registerPlugin(ScrollTrigger);
 
 const BentoTilt = ({ children, className = '' }) => {
   const [transformStyle, setTransformStyle] = useState('');
@@ -30,8 +25,6 @@ const BentoTilt = ({ children, className = '' }) => {
 
     setTransformStyle(newTransform);
   };
-
-  // console.log('transformStyle', transformStyle);
 
   const handleMouseLeave = () => {
     setTransformStyle('');

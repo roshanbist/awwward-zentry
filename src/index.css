@@ -102,17 +102,14 @@ body {
   }
 
   .about-subtext {
-    /* @apply absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center font-cicular-web text-lg md:max-w-[34rem]; */
     @apply absolute bottom-[7dvh] md:bottom-[17dvh] left-1/2 w-full max-w-[30rem] -translate-x-1/2 text-center font-cicular-web text-lg md:max-w-[34rem];
   }
 
   .about-image {
-    /* @apply absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw]; */
     @apply absolute left-1/2 top-0 z-20 h-[50vh] lg:h-[60vh] min-w-[50vw] w-[50vw] lg:min-w-[35vw] lg:w-[35vw] origin-center -translate-x-1/2 overflow-hidden rounded-3xl;
   }
 
   .animated-title {
-    /* @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-white sm:px-32 md:text-[6rem]; */
     @apply text-blue-50 text-center text-[4rem]/[1] md:text-[7rem]/[1] uppercase lg:text-4xl/[0.9];
   }
 
@@ -143,7 +140,6 @@ body {
   }
 
   .story-img-container {
-    /* @apply relative md:h-dvh h-[90vh] w-full; */
     @apply relative h-[25rem] md:h-[50rem] w-full max-w-[80rem] mx-auto;
     opacity: 0;
     transform-origin: center top;
@@ -153,14 +149,12 @@ body {
   }
 
   .story-img-mask {
-    /* @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5; */
     clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
     @apply absolute left-[4rem] -top-[3.5rem] size-full overflow-hidden md:left-[10%] md:top-[-10%];
     clip-path: polygon(4% 0, 83% 20%, 89% 83%, 0% 95%);
   }
 
   .story-img-content {
-    /* @apply absolute w-full md:h-dvh h-[50dvh]  left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px]; */
     @apply absolute w-full md:h-[55dvh] lg:h-[52dvh] -left-[5.5rem] top-0;
     transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
   }
@@ -178,7 +172,6 @@ body {
   }
 
   .sword-man-clip-path {
-    /* clip-path: polygon(16% 0, 89% 15%, 75% 100%, 0 97%); */
     clip-path: polygon(15% 0, 83% 19%, 66% 78%, 0% 79%);
   }
 
