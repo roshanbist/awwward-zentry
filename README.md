@@ -15,6 +15,7 @@
 2. ⚙️ [Tech Stack](#tech-stack)
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
+5. 🚀 [Deploy](#deploy)
 
 ## ⚠️ Disclaimer
 
@@ -84,3 +85,7 @@ npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
+
+## 🚀 Deploy
+
+The project is deployed using Vercel. You can explore the live demo here: [Demo](https://awwward-zentry.vercel.app/)
