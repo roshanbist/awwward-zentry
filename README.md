@@ -9,7 +9,7 @@
   <h3 align="center">An Awwwards Winning Website</h3>
 </div>
 
-## 📋 <a name="table">Table of Contents</a>
+## 📋 Table of Contents
 
 1. 🤖 [Introduction](#introduction)
 2. ⚙️ [Tech Stack](#tech-stack)
