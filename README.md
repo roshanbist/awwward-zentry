@@ -23,7 +23,10 @@ All design credits go to **[Zentry](https://zentry.com/)**. This project is crea
 ## 🤖 Introduction
 
 Build a visually captivating website inspired by **[Zentry](https://zentry.com/)**, featuring scroll-triggered animations, geometric transitions, and engaging video storytelling. Learn how to deliver a luxurious, modern feel, focusing on engaging UI/UX and smooth responsiveness, capturing the essence of what makes an Awwwards winner.
-_Explore live site_ [![Awwward Zentry](https://img.shields.io/badge/Awwward-Zentry-006400?style=for-the-badge&logo=google-chrome&logoColor=000000)](https://awwward-zentry.vercel.app/)
+
+<div>
+    _Explore live site_ [![Awwward Zentry](https://img.shields.io/badge/Awwward-Zentry-006400?style=for-the-badge&logo=google-chrome&logoColor=000000)](https://awwward-zentry.vercel.app/)
+</div>
 
 ## ⚙️ Tech Stack
 
