@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import RoundedCorner from '../ui/RoundedCorner';
-import AnimatedTitle from '../animatedTitle/animatedTitle';
+import AnimatedTitle from '../animatedTitle/AnimatedTitle';
 import Button from '../ui/Button';
 
 gsap.registerPlugin(ScrollTrigger);

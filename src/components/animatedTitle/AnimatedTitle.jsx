@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
