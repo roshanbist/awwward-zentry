@@ -11,17 +11,17 @@
 
 ## 📋 Table of Contents
 
-1. 🤖 [Introduction](#-introduction)
-2. ⚙️ [Tech Stack](#-tech-stack)
-3. 🔋 [Features](#-features)
-4. 🤸 [Quick Start](#-quick-start)
-5. 🚀 [Deploy](#-deploy)
+1. 🤖 [Introduction](#introduction)
+2. ⚙️ [Tech Stack](#tech-stack)
+3. 🔋 [Features](#features)
+4. 🤸 [Quick Start](#quick-start)
+5. 🚀 [Deploy](#deploy)
 
 ## ⚠️ Disclaimer
 
 All design credits go to **[Zentry](https://zentry.com/)**. This project is created purely for **educational purposes** and is not intended for commercial use or public deployment.
 
-## 🤖 Introduction
+## <a name="introduction">🤖 Introduction</a>
 
 This project is a visually stunning website inspired by **[Zentry](https://zentry.com/)**, designed to showcase the cutting-edge web design techniques that define an Awwwards-winning experience. With scroll-triggered animations, geometric transitions, and immersive video storytelling, the project delivers a modern, luxurious feel.
 
@@ -29,13 +29,13 @@ The primary goal is to demonstrate advanced UI/UX principles, dynamic interactio
 
 **Explore live site** [![Awwward Zentry](https://img.shields.io/badge/Awwward-Zentry-006400?style=for-the-badge)](https://awwward-zentry.vercel.app/)
 
-## ⚙️ Tech Stack
+## <a name="tech-stack">⚙️ Tech Stack</a>
 
 - GSAP: For high-performance animations.
 - React.js: As the core JavaScript library for building user interfaces.
 - Tailwind CSS: For rapid and efficient styling.
 
-## 🔋 Features
+## <a name="features">🔋 Features</a>
 
 👉 **Scroll-Based Animations**: Create dynamic and engaging user experiences triggered by scrolling.
 
@@ -51,7 +51,7 @@ The primary goal is to demonstrate advanced UI/UX principles, dynamic interactio
 
 Additional highlights include a modular codebase and reusable components for better maintainability.
 
-## 🤸 Quick Start
+## <a name="quick-start">🤸 Quick Start </a>
 
 Follow these steps to set up the project locally on your machine.
 
@@ -86,6 +86,6 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser to view the project.
 
-## 🚀 Deploy
+## <a name="deploy">🚀 Deploy</a>
 
 The project is deployed using Vercel. You can explore the live demo here: [Demo](https://awwward-zentry.vercel.app/)
